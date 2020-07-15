@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.androidapp.sleepez.databinding.AlarmItemBinding;
 import com.androidapp.sleepez.model.Alarm;
 import com.androidapp.sleepez.view.viewwholder.AlarmViewHolder;
+import com.androidapp.sleepez.viewmodel.AlarmViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AlarmAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
     private List<Alarm> alarmList;
+    private AlarmViewModel viewModel;
 
-    public AlarmAdapter() {
+    public AlarmAdapter(AlarmViewModel viewModel) {
         this.alarmList = new ArrayList<>();
+        this.viewModel = viewModel;
     }
 
     @NonNull
@@ -31,7 +34,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull AlarmViewHolder holder, int position) {
-        holder.bind(alarmList.get(position));
+        holder.bind(alarmList.get(position), viewModel);
     }
 
     @Override
@@ -39,8 +42,14 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
         return alarmList.size();
     }
 
+    // Update adapter with the new data
     public void updateData(List<Alarm> alarmList) {
         this.alarmList = alarmList;
         notifyDataSetChanged();
+    }
+
+    // Return item at a certain position
+    public Alarm getAlarm(int position) {
+        return this.alarmList.get(position);
     }
 }

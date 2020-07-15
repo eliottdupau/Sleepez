@@ -16,14 +16,14 @@ import androidx.room.Update;
 public interface AlarmDao {
 
     @Query("Select * From Alarm")
-    public LiveData<List<Alarm>> loadAlarms();
+    LiveData<List<Alarm>> loadAlarms();
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    public void insert(Alarm alarm);
+    void insert(Alarm alarm);
 
     @Update
-    public void update(Alarm alarm);
+    void update(Alarm alarm);
 
     @Delete
-    public  void delete(Alarm alarm);
+    void delete(Alarm alarm);
 }

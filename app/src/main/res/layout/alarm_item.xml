@@ -9,41 +9,110 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
         app:cardElevation="1dp"
         app:strokeWidth="1dp"
         app:strokeColor="@color/stroke_color">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="80dp">
 
-            <TextView
-                android:id="@+id/schedule"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@{Integer.toString(alarm.schedule)}"
-                android:textSize="21sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/name"
+                <TextView
+                    android:id="@+id/schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{alarm.formatSchedule(alarm.hour, alarm.minute)}"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{alarm.name}"
+                    android:alpha="0.8" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/daysContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@{alarm.name}"
-                android:alpha="0.8"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/schedule"
-                app:layout_constraintTop_toBottomOf="@id/schedule" />
+                app:layout_constraintEnd_toStartOf="@+id/alarmState">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/monday_abbreviation"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/tuesday_abbreviation"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/wednesday_abbreviation"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/thursday_abbreviation"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/friday_abbreviation"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/saturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/saturday_abbreviation"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/sunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/sunday_abbreviation"/>
+
+            </LinearLayout>
 
             <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/alarmState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"

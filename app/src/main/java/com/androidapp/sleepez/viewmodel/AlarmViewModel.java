@@ -13,7 +13,6 @@ import androidx.lifecycle.LiveData;
 
 public class AlarmViewModel extends AndroidViewModel {
     private AlarmRepository repository;
-
     private LiveData<List<Alarm>> alarmListLiveData;
 
     public AlarmViewModel(@NonNull Application application) {
@@ -25,5 +24,17 @@ public class AlarmViewModel extends AndroidViewModel {
 
     public LiveData<List<Alarm>> loadAlarms() {
         return alarmListLiveData;
+    }
+
+    public void insertAlarm(Alarm alarm) {
+        repository.insertAlarm(alarm);
+    }
+
+    public void deleteAlarm(Alarm alarm) {
+        repository.deleteAlarm(alarm);
+    }
+
+    public void updateAlarm(Alarm alarm) {
+        repository.updateAlarm(alarm);
     }
 }

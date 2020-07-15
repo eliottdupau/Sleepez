@@ -26,4 +26,16 @@ public class AlarmRepository {
     public LiveData<List<Alarm>> loadAlarms() {
         return alarmListLiveData;
     }
+
+    public void insertAlarm(Alarm alarm) {
+        SleepezDatabase.databaseWriteExecutor.execute(() -> alarmDao.insert(alarm));
+    }
+
+    public void updateAlarm(Alarm alarm) {
+        SleepezDatabase.databaseWriteExecutor.execute(() -> alarmDao.update(alarm));
+    }
+
+    public void deleteAlarm(Alarm alarm) {
+        SleepezDatabase.databaseWriteExecutor.execute(() -> alarmDao.delete(alarm));
+    }
 }

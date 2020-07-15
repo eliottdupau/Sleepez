@@ -1,6 +1,20 @@
 <resources>
     <string name="app_name">Sleepez</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label">Label</string>
+    <string name="ringtone">Ringtone</string>
+
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    
+    <string name="monday_abbreviation">M</string>
+    <string name="tuesday_abbreviation">T</string>
+    <string name="wednesday_abbreviation">W</string>
+    <string name="thursday_abbreviation">Th</string>
+    <string name="friday_abbreviation">F</string>
+    <string name="saturday_abbreviation">S</string>
+    <string name="sunday_abbreviation">Su</string>
+
+    <string name="image_content_description_icon">Icon</string>
 </resources>

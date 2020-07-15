@@ -3,4 +3,12 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    
+    <color name="onPrimary">#ffff</color>
+    <color name="onBackground">#444444</color>
+    <color name="onSurface">#000000</color>
+    <color name="onError">#b00020</color>
+
+    <color name="testColor">#F0FFFF</color>
+    <color name="defaultColor">#757575</color>
 </resources>
